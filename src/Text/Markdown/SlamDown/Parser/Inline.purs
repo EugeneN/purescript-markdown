@@ -170,7 +170,8 @@ inlines = many inline2 <* eof
   isAlphaNum c =
     (s >= "a" && s <= "z") ||
     (s >= "A" && s <= "Z") ||
-    (s >= "0" && s <= "9")
+    (s >= "0" && s <= "9") ||
+    (s >= ":" && s <= ";")
     where s = S.fromChar c
 
   emphasis :: Parser String Inline -> (List Inline -> Inline) -> String -> Parser String Inline
