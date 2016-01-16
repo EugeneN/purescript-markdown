@@ -170,6 +170,8 @@ inlines = many inline2 <* eof
   isAlphaNum c =
     (s >= "a" && s <= "z") ||
     (s >= "A" && s <= "Z") ||
+    (s >= "а" && s <= "я") ||
+    (s >= "Я" && s <= "Я") ||
     (s >= "0" && s <= "9") ||
     (s >= ":" && s <= ";")
     where s = S.fromChar c
