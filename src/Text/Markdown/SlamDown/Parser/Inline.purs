@@ -170,8 +170,17 @@ inlines = many inline2 <* eof
   isAlphaNum c =
     (s >= "a" && s <= "z") ||
     (s >= "A" && s <= "Z") ||
+
+    -- XXX FIXME
     (s >= "а" && s <= "я") ||
-    (s >= "Я" && s <= "Я") ||
+    (s >= "А" && s <= "Я") ||
+    (s == "і") || (s == "І") ||
+    (s == "ї") || (s == "Ї") ||
+    (s == "ґ") || (s == "Ґ") ||
+    (s == "є") || (s == "Є") ||
+    (s == "ю") || (s == "Ю") ||
+    (s == "ь") || (s == "Ь") ||
+
     (s >= "0" && s <= "9") ||
     (s >= ":" && s <= ";")
     where s = S.fromChar c
@@ -336,4 +345,3 @@ inlines = many inline2 <* eof
             <|> (satisfy (\x -> S.fromChar x == "\n") *> pure LineBreak)
             <|> pure (Str "\\")
        else pure (Str c)
-
